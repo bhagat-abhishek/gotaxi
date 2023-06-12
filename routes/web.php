@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [UiController::class, 'index'])->name('home');
+Route::get('/about', [UiController::class, 'about'])->name('about');
+Route::get('/services', [UiController::class, 'services'])->name('services');
+Route::get('/contact', [UiController::class, 'contact'])->name('contact');
