@@ -6,7 +6,7 @@
                    <div class="single-footer-widget">
                        <h6>Admin Area</h6>
                        <ul>
-                           <li><a href="#">Admin Login</a></li>
+                           <li><a href="/admin">Admin Login</a></li>
                        </ul>
                    </div>
                </div>
@@ -14,10 +14,10 @@
                    <div class="single-footer-widget mx-auto">
                        <h6>Quick links</h6>
                        <ul>
-                           <li><a href="#">Home</a></li>
-                           <li><a href="#">About</a></li>
-                           <li><a href="#">Service</a></li>
-                           <li><a href="#">Contact us</a></li>
+                           <li><a href="{{ route('home') }}">Home</a></li>
+                           <li><a href="{{ route('about') }}">About</a></li>
+                           <li><a href="{{ route('services') }}">Service</a></li>
+                           <li><a href="{{ route('contact') }}">Contact us</a></li>
                        </ul>
                    </div>
                </div>

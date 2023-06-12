@@ -3,13 +3,13 @@
     </div>
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
-            <a href="/"><img src="{{ asset('assets/img/logo.png') }}" alt="" title="" /></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="" title="" /></a>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li class="menu-active"><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('about') }}">About</a></li>
+                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="{{ route('contact') }}">Contact us</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
