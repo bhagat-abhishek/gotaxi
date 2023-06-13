@@ -23,42 +23,88 @@
                 </div>
                 <div class="col-lg-4  col-md-6 header-right">
                     <h4 class="pb-30">Book Your Taxi Online!</h4>
-                    <form class="form">
+                    <form class="form" method="post" action="{{ route('booking') }}">
+                        @csrf
                         <div class="from-group">
                             <input class="form-control txt-field" type="text" name="name" placeholder="Your name"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your name'">
-                            <input class="form-control txt-field" type="email" name="email" placeholder="Email address"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'">
+                            <p class="text-danger">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </p>
                             <input class="form-control txt-field" type="tel" name="phone" placeholder="Phone number"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone number'">
+                            <p class="text-danger">
+                                @error('phone')
+                                    {{ $message }}
+                                @enderror
+                            </p>
                         </div>
                         <div class="form-group">
                             <div class="default-select" id="default-select">
-                                <select>
-                                    <option value="" disabled selected hidden>From Destination</option>
-                                    <option value="1">Destination One</option>
-                                    <option value="2">Destination Two</option>
-                                    <option value="3">Destination Three</option>
+                                <select name=car_type>
+                                    <option value="" disabled selected hidden>Vehicle</option>
+                                    @forelse ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->name }} ({{ $vehicle->type }})">{{ $vehicle->name }}
+                                            ({{ $vehicle->type }})
+                                        </option>
+                                    @empty
+                                        <option value="">No Vehicles Found</option>
+                                    @endforelse
                                 </select>
                             </div>
+                            <p class="text-danger">
+                                @error('car_type')
+                                    {{ $message }}
+                                @enderror
+                            </p>
                         </div>
-                        <div class="form-group">
-                            <div class="default-select" id="default-select2">
-                                <select>
-                                    <option value="" disabled selected hidden>To Destination</option>
-                                    <option value="1">Destination One</option>
-                                    <option value="2">Destination Two</option>
-                                    <option value="3">Destination Three</option>
-                                </select>
-                            </div>
+                        <div class="from-group">
+                            <input class="form-control txt-field" type="text" name="pickup_location"
+                                placeholder="Pickup Loaction" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Pickup Location'">
+                            <p class="text-danger">
+                                @error('pickup_location')
+                                    {{ $message }}
+                                @enderror
+                            </p>
+                            <input class="form-control txt-field" type="text" name="drop_location"
+                                placeholder="Drop Location" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Drop Location'">
+                            <p class="text-danger">
+                                @error('drop_location')
+                                    {{ $message }}
+                                @enderror
+                            </p>
                         </div>
                         <div class="form-group">
                             <div class="input-group dates-wrap">
-                                <input id="datepicker2" class="dates form-control" placeholder="Date & time" type="text">
+                                <input id="datepicker" class="dates form-control" name="from" placeholder="From"
+                                    type="text">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
                                 </div>
                             </div>
+                            <p class="text-danger">
+                                @error('from')
+                                    {{ $message }}
+                                @enderror
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group dates-wrap">
+                                <input id="datepicker2" class="dates form-control" name="to" placeholder="To"
+                                    type="text">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+                                </div>
+                            </div>
+                            <p class="text-danger">
+                                @error('to')
+                                    {{ $message }}
+                                @enderror
+                            </p>
                         </div>
                         <div class="form-group">
 
