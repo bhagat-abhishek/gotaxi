@@ -20,3 +20,4 @@ Route::get('/services', [UiController::class, 'services'])->name('services');
 Route::get('/contact', [UiController::class, 'contact'])->name('contact');
 
 Route::post('/book', [UiController::class, 'booking'])->name('booking');
+Route::post('/contact', [UiController::class, 'contactPost'])->name('contact.post');

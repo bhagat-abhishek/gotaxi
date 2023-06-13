@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Review;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
@@ -77,5 +78,28 @@ class UiController extends Controller
         ]);
 
         return redirect()->route('home')->with('success', 'Booking Requested, we will get back to you');
+    }
+
+    /**
+     * Contact Form
+     * 
+     */
+    public function contactPost(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+
+        return redirect()->route('home')->with('success', 'Thank you, We will get back to you');
     }
 }
