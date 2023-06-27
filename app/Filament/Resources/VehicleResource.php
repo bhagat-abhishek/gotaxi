@@ -26,6 +26,7 @@ class VehicleResource extends Resource
                 //
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('type')->required(),
+                Forms\Components\TextInput::make('price')->required()->integer()->label('Price ₹'),
             ]);
     }
 
@@ -36,6 +37,7 @@ class VehicleResource extends Resource
                 //
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('type')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('price')->sortable(),
             ])
             ->filters([
                 //
