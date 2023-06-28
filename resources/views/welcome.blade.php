@@ -46,8 +46,8 @@
                                 <select name=car_type>
                                     <option value="" disabled selected hidden>Vehicle</option>
                                     @forelse ($vehicles as $vehicle)
-                                        <option value="{{ $vehicle->name }} ({{ $vehicle->type }})">{{ $vehicle->name }}
-                                            ({{ $vehicle->type }})
+                                        <option value="{{ $vehicle->name }} ({{ $vehicle->type }}) ₹ {{ $vehicle->price }}">{{ $vehicle->name }}
+                                            ({{ $vehicle->type }}) <span class="text-white">₹ {{ $vehicle->price }}</span>
                                         </option>
                                     @empty
                                         <option value="">No Vehicles Found</option>
